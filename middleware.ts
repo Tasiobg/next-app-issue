@@ -1,0 +1,17 @@
+import type { NextRequest } from 'next/server';
+
+export function middleware(request: NextRequest) {
+  console.log(`request.nextUrl.pathname: ${request.nextUrl.pathname}`);
+}
+
+export const config = {
+  matcher: [
+    /*
+     * Match all request paths except for the ones starting with:
+     * - api (API routes)
+     * - _next/static (static files)
+     * - favicon.ico (favicon file)
+     */
+    '/((?!api|_next/static|favicon.ico).*)',
+  ]
+}
